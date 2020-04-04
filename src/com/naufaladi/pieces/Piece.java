@@ -1,34 +1,25 @@
 package com.naufaladi.pieces;
 
-import com.naufaladi.game.Player;
+import com.naufaladi.game.Team;
+import com.naufaladi.game.ChessBoard;
 
-public abstract class Piece {
 
-    public int currentX, currentY;      //current position of the piece
-    public Player player;
+import java.util.List;
 
-    public Piece(int x, int y, Player player) {
-        this.currentX = x;
-        this.currentY = y;
-        this.player = player;
+public abstract class Piece {       // abstract because Piece is generic and not instantiable
+
+    protected final int piecePosition;
+    protected final Team pieceTeam;
+
+    Piece(final int piecePosition, final Team pieceTeam){
+        this.piecePosition = piecePosition;
+        this.pieceTeam = pieceTeam;
     }
 
-    public enum PieceType{
-        QUEEN, KING, KNIGHT, BISHOP, ROOK, PAWN
+    public abstract List<Move> calculateValidMoves(final ChessBoard chessBoard);
+
+
+    public enum PieceType {
+        BISHOP, KING, KNIGHT, PAWN, QUEEN, ROOK
     }
-
-
-
-
-
-
-
-    public boolean isWhite() {
-
-        return true;
-    }
-
-
-
-
 }

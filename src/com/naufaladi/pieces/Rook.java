@@ -1,26 +1,21 @@
 package com.naufaladi.pieces;
 
-import com.naufaladi.game.Player;
+import com.naufaladi.game.Team;
+import com.naufaladi.game.ChessBoard;
 
-import static com.naufaladi.pieces.Piece.PieceType.ROOK;
-
+import java.util.List;
 
 public class Rook extends Piece {
 
-    PieceType pieceType;
 
-
-    public Rook (int x, int y, Player player){
-        super(x, y, player);
-        pieceType = ROOK;
+    Rook(int piecePosition, Team pieceTeam) {
+        super(piecePosition, pieceTeam);
     }
 
-    public boolean canMove(int targetX, int targetY){
-
-
-
-        return true;
+    @Override
+    public List<Move> calculateValidMoves(ChessBoard chessBoard) {
+        return null;
     }
-
-
 }
+
+
